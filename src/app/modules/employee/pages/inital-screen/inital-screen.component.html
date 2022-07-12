@@ -1,0 +1,44 @@
+<app-navbar></app-navbar>
+<app-create-employees></app-create-employees>
+
+<div class="container" id="main-container">
+    <div class="row">
+        <div *ngFor="let employee of employees" class="col-md-6 col-xl-3">
+            <div class="card m-b-30">
+                <div class="card-body row">
+                    <div class="col-6">
+                        <a href=""><img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="" class="img-fluid rounded-circle w-60"></a>
+                    </div>
+                    <div class="col-6 card-title align-self-center mb-0">
+                        <h5>{{employee.name}}</h5>
+                        <div *ngFor="let skill of employee?.skills">
+                          <p class="m-0">{{skill?.description}}</p>
+                        </div>
+                        <p class="m-0">Nível: {{employee?.level?.description}}</p>
+                    </div>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><i class="fa fa-envelope float-right"></i>{{employee?.email}}</li>
+                    <li class="list-group-item"><i class="fa fa-phone float-right"></i>Phone: {{employee?.phone}}</li>
+                </ul>
+                <div class="card-body">
+                    <div class="float-right btn-group btn-group-sm">
+                        <a class="btn btn-primary tooltips" (click)="editEmployee(employee.employeeCode)" data-toggle="modal" data-target="#editEmployee" data-placement="top" data-original-title="Edit"><i class="fa fa-pencil"></i> </a>
+                        <a class="btn btn-secondary tooltips" (click)="deleteModal(employee.employeeCode)" data-toggle="modal" data-placement="top" data-original-title="Delete"><i class="fa fa-times"></i></a>
+                    </div>
+                </div>
+            </div>
+      </div>
+    </div>
+</div>
+
+
+
+<!-- NOTIFICATION FOR NO EMPLOYEES -->
+<div *ngIf="employees?.length == 0" class="col-lg-12 col-md-12 col-xl-12">
+  <div class="alert alert-info" role="alert">
+    <h4 class="alert-heading">NO EMPLOYEES</h4>
+    <p>No Employees were found.</p>
+  </div>
+</div>
+
