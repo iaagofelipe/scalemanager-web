@@ -1,0 +1,14 @@
+<div class="modal-header">
+  <h4 class="modal-title" id="modal-title">Skill deletion</h4>
+  <button type="button" class="btn-close" aria-describedby="modal-title" (click)="activeModal.dismiss('Cross click')"></button>
+</div>
+<div class="modal-body">
+  <p><strong>Are you sure you want to do that?</strong></p>
+  <p>That information will be permanently deleted.
+  <span class="text-danger">This operation can not be undone.</span>
+  </p>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-outline-secondary" (click)="activeModal.dismiss('cancel click')">Cancel</button>
+  <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="delete()">Delete</button>
+</div>

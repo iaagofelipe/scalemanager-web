@@ -1,0 +1,36 @@
+<app-navbar></app-navbar>
+
+<div class="container">
+  <div class="row">
+    <div class="table">
+      <div class="table-responsive table-lg mt-3">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th class="max-width">Skill</th>
+              <th>
+                <div style="text-align: center;">
+                  <button class="btn btn-sm btn-outline-secondary" (click)="modalNewSkill()"><i class="fa fa-plus"></i></button>
+                </div>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let skill of skills">
+              <td class="text-nowrap align-middle">{{skill.description}}</td>
+              <td class="text-center align-middle">
+                <div class="btn-group align-top">
+                  <button class="btn btn-sm btn-outline-secondary badge" type="button" data-toggle="modal"
+                    data-target="#user-form-modal" (click)="modalEditSkill(skill.skillCode)">Edit</button>
+                  <button class="btn btn-sm btn-outline-secondary badge" (click)="modalDeleteSkill(skill.skillCode)" type="button"><i
+                      class="fa fa-trash"></i></button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
