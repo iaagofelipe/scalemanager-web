@@ -1,0 +1,106 @@
+
+<div class="modal fade" id="addEmployee" tabindex="-1" role="dialog" aria-labelledby="addEmployee" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add employee</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="formGroupNewEmployee">
+          <div class="form-group">
+            <label>Nome</label>
+            <input type="nome" class="form-control" placeholder="Nome" ngModel formControlName="name">
+          </div>
+
+          <div class="form-group">
+            <label >Email</label>
+            <input type="email" class="form-control" placeholder="Email" ngModel  formControlName="email" >
+          </div>
+
+          <div class="form-group">
+            <label >Phone Number</label>
+            <input type="text" class="form-control" placeholder="Phone Number" ngModel  formControlName="phone" maxLength="11">
+          </div>
+
+          <div style="text-align: left">
+            <label>Skills: </label>
+            <br />
+            <div class="form-check form-check-inline" *ngFor="let skill of skills">
+              <input class="form-check-input" type="checkbox" checked="false" formControlName="skills">
+              <label class="form-check-label">
+                {{skill.description}}
+              </label>
+            </div>
+          </div>
+        <br />
+        <div style="text-align: left">
+          <label>Level: </label>
+          <br />
+          <div class="form-check form-check-inline" *ngFor="let employeeLevel of employeeLevels">
+            <input class="form-check-input" type="checkbox" checked="false" formControlName="levels">
+            <label class="form-check-label">
+              {{employeeLevel.description}}
+            </label>
+          </div>
+        </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button  (click)="saveNewEmployee()" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- edit employees -->
+<div class="modal fade" id="editEmployee" tabindex="-1" role="dialog" aria-labelledby="updateEmployee" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editEmployee">Edit employee</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="formGroupNewEmployee">
+          <div class="form-group">
+            <label>Nome</label>
+            <input type="nome" class="form-control" placeholder="Nome" ngModel formControlName="name">
+          </div>
+
+          <div class="form-group">
+            <label >Email</label>
+            <input type="email" class="form-control" placeholder="Email" ngModel  formControlName="email" >
+          </div>
+
+          <div class="form-group">
+            <label >Phone Number</label>
+            <input type="text" class="form-control" placeholder="Phone Number" ngModel  formControlName="phone" maxLength="11">
+          </div>
+          <!-- <div class="form-group">
+            <label >Skills</label>
+              <select class="form-control" ngModel formControlName="skills">
+                <option>Java</option>
+              </select>
+          </div>
+          <div class="form-group" >
+            <label>Level</label>
+            <select class="form-control" ngModel formControlName="level">
+              <option>Junior</option>
+            </select>
+          </div> -->
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button (click)="updateEmployee()" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
